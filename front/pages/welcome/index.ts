@@ -1,20 +1,20 @@
 customElements.define(
-	'init-welcome',
-	class InitWelcome extends HTMLElement {
-		shadow = this.attachShadow({ mode: 'open' });
+  "init-welcome",
+  class InitWelcome extends HTMLElement {
+    shadow = this.attachShadow({ mode: "open" });
 
-		constructor() {
-			super();
-		}
+    constructor() {
+      super();
+    }
 
-		connectedCallback() {
-			this.render();
-		}
+    connectedCallback() {
+      this.render();
+    }
 
-		addStyles() {
-			const style = document.createElement('style');
+    addStyles() {
+      const style = document.createElement("style");
 
-			style.innerHTML = `
+      style.innerHTML = `
 			* {
 				margin: 0;
 				padding: 0;
@@ -49,56 +49,95 @@ customElements.define(
 			}
 
 			.complete-draw {
-				width: 60%;
-				height: 80%;
+				width: 700px;
+				height: 700px;
+
 				display: flex;
     			justify-content: space-between;
 			}
 
 			.draw {
-				border: 1px solid red;
 				border-radius:1px;
 				background: white;
 			}
+
+			.left-corner {
+				height: 320px;
+				
+				display: flex;
+				flex-direction: row-reverse;
+				
+				animation: leftZone 1.5s;
+			}
+			
+			.right-corner {
+				height: 320px;
+
+				display: flex;
+				align-items: flex-end;
+				align-self: self-end;
+				
+				animation: rightZone 1.5s;
+			}
+			
 			.top {
-				width: 200px;
+				width: 300px;
 				height: 20px;
 				
 			}
 			.left {
 				width: 20px;
-				height: 200px;
+				height: 300px;
 			}
 			.rigth {
-				width: 200px;
+				width: 300px;
 				height: 20px;
 			}
 			.bottom {
 				width: 20px;
-				height: 200px;
+				height: 300px;
 			}
-			.right-corner {
-				transform: rotate(180deg);
-			}
-		
 
+			@keyframes leftZone {
+				0% {
+					transform: translate(190px, 190px);
+					
+				}
+				
+				100% {
+					transform: translate(0, 0);
+					
+				}
+			}
+			
+			@keyframes rightZone {
+				0% {
+					transform: translate(-190px, -190px);
+					
+				}
+				
+				100% {
+					transform: translate(0, 0);
+
+				}
+			}
           
               `;
-			this.shadow.appendChild(style);
-		}
+      this.shadow.appendChild(style);
+    }
 
-		render() {
-			// <header class="header">
-			// 	<img src="https://picsum.photos/40/40" alt="logo.png">
-			// 	<nav class="nav">
-			// 		<ul class="ul_nav">
-			// 			<li class="li_nav">Welcome</li>
-			// 			<li class="li_nav">Projects</li>
-			// 			<li class="li_nav">About Us</li>
-			// 		</ul>
-			// 	</nav>
-			// </header>
-			this.shadow.innerHTML = `
+    render() {
+      // <header class="header">
+      // 	<img src="https://picsum.photos/40/40" alt="logo.png">
+      // 	<nav class="nav">
+      // 		<ul class="ul_nav">
+      // 			<li class="li_nav">Welcome</li>
+      // 			<li class="li_nav">Projects</li>
+      // 			<li class="li_nav">About Us</li>
+      // 		</ul>
+      // 	</nav>
+      // </header>
+      this.shadow.innerHTML = `
 
 			<div class="main">
 				<div class="complete-draw">
@@ -116,7 +155,7 @@ customElements.define(
 			
 			`;
 
-			this.addStyles();
-		}
-	}
+      this.addStyles();
+    }
+  }
 );
