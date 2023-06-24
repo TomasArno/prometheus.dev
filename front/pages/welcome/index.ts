@@ -12,7 +12,7 @@ customElements.define(
     }
 
     addStyles() {
-      const style = document.createElement("style");
+      const style = document.createElement("style"); //HACER FIRST MOBILE
 
       style.innerHTML = `
 			* {
@@ -43,64 +43,120 @@ customElements.define(
 
 			.main {
 				height: 100%;
+				width: 100%;
 				display:flex;
 				justify-content: center;
 				align-items: center;
 			}
 
 			.complete-draw {
-				width: 700px;
-				height: 700px;
-
 				display: flex;
-    			justify-content: space-between;
+				
+				width: 100%;
+				height: 100%;
+			}
+			
+			@media (min-width: 499px) {
+				.complete-draw {					
+					width: 60%;
+					height: 90%;
+
+					justify-content: space-between;
+				}
 			}
 
 			.draw {
-				border-radius:1px;
 				background: white;
 			}
 
 			.left-corner {
-				height: 320px;
-				
 				display: flex;
 				flex-direction: row-reverse;
-				
-				animation: leftZone 1.5s;
 			}
 			
 			.right-corner {
-				height: 320px;
-
+				
 				display: flex;
 				align-items: flex-end;
 				align-self: self-end;
 				
-				animation: rightZone 1.5s;
+				animation: slideBottomUnder500 1.5s;
+			}
+			
+			@media (min-width: 499px) {
+				.left-corner {
+					height: 320px;
+					animation: leftZone 1.5s;
+					
+				}
+				.right-corner {
+					height: 320px;
+					animation: rightZone 1.5s;
+					
+				}
 			}
 			
 			.top {
-				width: 300px;
-				height: 20px;
+				width: 100px;
+				height: 10px;
+				border-radius: 0 0 10px 0;
 				
 			}
-			.left {
-				width: 20px;
-				height: 300px;
-			}
+
 			.rigth {
-				width: 300px;
-				height: 20px;
+				width: 100px;
+				height: 5px;
+				
 			}
+			
+			@media (min-width: 499px) {
+				.top, .rigth {
+					width: 250px;
+					height: 14px;
+				}
+
+				.rigth {
+					border-radius: 10px 0 0 0;
+				}
+			}
+			
+			.left {
+				width: 10px;
+				height: 100px;
+				border-radius: 5px 0 10px 0;
+			}
+
 			.bottom {
-				width: 20px;
-				height: 300px;
+				width: 100px;
+				height: 5px;
+			}
+			
+			@media (min-width: 499px) {
+				.left, .bottom {
+					width: 14px;
+					height: 250px;
+				}
+
+				.bottom {
+					border-radius:  10px 0 5px 0;
+				}
+			}
+
+			@keyframes slideBottomUnder500 {
+				0% {
+					transform: translate(500px);
+					
+				}
+				
+				100% {
+					transform: translate(50%);
+
+				}
 			}
 
 			@keyframes leftZone {
 				0% {
-					transform: translate(190px, 190px);
+					transform: translate(130px, 130px);
 					
 				}
 				
@@ -112,7 +168,7 @@ customElements.define(
 			
 			@keyframes rightZone {
 				0% {
-					transform: translate(-190px, -190px);
+					transform: translate(-130px, -130px);
 					
 				}
 				
@@ -121,6 +177,7 @@ customElements.define(
 
 				}
 			}
+		
           
               `;
       this.shadow.appendChild(style);
