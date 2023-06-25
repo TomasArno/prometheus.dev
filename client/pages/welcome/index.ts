@@ -12,7 +12,7 @@ customElements.define(
     }
 
     addStyles() {
-      const style = document.createElement("style"); //HACER FIRST MOBILE
+      const style = document.createElement("style");
 
       style.innerHTML = `
 			* {
@@ -58,7 +58,7 @@ customElements.define(
 			
 			@media (min-width: 499px) {
 				.complete-draw {					
-					width: 60%;
+					width: 80%;
 					height: 90%;
 
 					justify-content: space-between;
@@ -70,27 +70,31 @@ customElements.define(
 			}
 
 			.left-corner {
-				display: flex;
-				flex-direction: row-reverse;
+				width: 25%;
+				height: 110px;
+				align-self: self-start;
 			}
 			
 			.right-corner {
-				
 				display: flex;
 				align-items: flex-end;
-				align-self: self-end;
 				
 				animation: slideBottomUnder500 1.5s;
 			}
 			
 			@media (min-width: 499px) {
 				.left-corner {
-					height: 320px;
+					width: initial;
+					height: initial;
+					display: flex;
+					flex-direction: row-reverse;
 					animation: leftZone 1.5s;
 					
 				}
 				.right-corner {
-					height: 320px;
+					width: initial;
+					height: initial;
+					
 					animation: rightZone 1.5s;
 					
 				}
@@ -123,7 +127,7 @@ customElements.define(
 			.left {
 				width: 10px;
 				height: 100px;
-				border-radius: 5px 0 10px 0;
+				border-radius: 0 0 10px 0;
 			}
 
 			.bottom {
@@ -149,7 +153,7 @@ customElements.define(
 				}
 				
 				100% {
-					transform: translate(50%);
+					transform: translate(0);
 
 				}
 			}
@@ -177,6 +181,36 @@ customElements.define(
 
 				}
 			}
+
+			@keyframes contentDelay {
+				100% {
+					visibility: visible;
+					opacity: 1;
+
+				}
+			}
+
+			.main_content {
+				display: flex;
+				justify-content: center;
+    			align-items: center;
+
+				background: #bfbfbf12;
+				visibility: hidden;
+				opacity: 0;
+
+				position: absolute;
+				top: 7%;
+				left: 12%;
+				right: 12%;
+				bottom: 7%;
+
+				animation: contentDelay 2s 1.5s forwards;
+			}
+
+			.welcome {
+				color: white;
+			}
 		
           
               `;
@@ -202,7 +236,10 @@ customElements.define(
 						<div class="draw top"></div>
 						<div class="draw left"></div>
 					</div>
-
+					<div class="main_content">
+						<h1 class="welcome">PROMETHEUS</h1>
+					</div>
+					
 					<div class="right-corner">
 						<div class="draw rigth"></div>
 						<div class="draw bottom"></div>
