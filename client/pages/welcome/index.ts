@@ -1,44 +1,26 @@
+const logo = require('../../assets/prometheus-logo.png');
+
 customElements.define(
-  "init-welcome",
-  class InitWelcome extends HTMLElement {
-    shadow = this.attachShadow({ mode: "open" });
+	'init-welcome',
+	class InitWelcome extends HTMLElement {
+		shadow = this.attachShadow({ mode: 'open' });
 
-    constructor() {
-      super();
-    }
+		constructor() {
+			super();
+		}
 
-    connectedCallback() {
-      this.render();
-    }
+		connectedCallback() {
+			this.render();
+		}
 
-    addStyles() {
-      const style = document.createElement("style");
+		addStyles() {
+			const style = document.createElement('style');
 
-      style.innerHTML = `
+			style.innerHTML = `
 			* {
 				margin: 0;
 				padding: 0;
 				box-sizing: border-box;
-			}
-      
-			.header {	
-				height: 60px;
-				background-color: rgba(240, 240, 240, 0.200);
-				border-bottom: rgba(245,238,230,.5);
-				display:flex;
-				justify-content:space-between;
-				align-items:center;
-			}
-
-			.ul_nav {
-				list-style:none;
-				display: flex;
-				column-gap: 12px;
-				margin: 0 20px 0 0;
-			}
-
-			.li_nav {
-				font-size: 30px;
 			}
 
 			.main {
@@ -208,27 +190,21 @@ customElements.define(
 				animation: contentDelay 2s 1.5s forwards;
 			}
 
+			.logo {
+				width: 9vmin;
+				height: 9vmin;
+			}
+
 			.welcome {
 				color: white;
-			}
-		
-          
-              `;
-      this.shadow.appendChild(style);
-    }
+				font-size: 9vmin;
+			}`;
 
-    render() {
-      // <header class="header">
-      // 	<img src="https://picsum.photos/40/40" alt="logo.png">
-      // 	<nav class="nav">
-      // 		<ul class="ul_nav">
-      // 			<li class="li_nav">Welcome</li>
-      // 			<li class="li_nav">Projects</li>
-      // 			<li class="li_nav">About Us</li>
-      // 		</ul>
-      // 	</nav>
-      // </header>
-      this.shadow.innerHTML = `
+			this.shadow.appendChild(style);
+		}
+
+		render() {
+			this.shadow.innerHTML = `
 
 			<div class="main">
 				<div class="complete-draw">
@@ -237,7 +213,8 @@ customElements.define(
 						<div class="draw left"></div>
 					</div>
 					<div class="main_content">
-						<h1 class="welcome">PROMETHEUS</h1>
+						<img class="logo" src="${logo}" />
+						<h1 class="welcome">prometheus</h1>
 					</div>
 					
 					<div class="right-corner">
@@ -246,10 +223,9 @@ customElements.define(
 					</div>
 				</div>
 			</div>
-			
 			`;
 
-      this.addStyles();
-    }
-  }
+			this.addStyles();
+		}
+	}
 );
