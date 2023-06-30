@@ -21,6 +21,11 @@ customElements.define(
 			box-sizing: border-box;
 			font-family: 'Poppins', sans-serif;
 		}
+
+		body {
+			width: 100vw;
+			height: 100vh;
+		}
 		
 		.main {
 			height: 100%;
@@ -248,23 +253,43 @@ customElements.define(
 		}
 		
 		.welcome_nav {
-			height:fit-content;
-			font-size: 8px;
+			display: flex;
+			justify-content: center;
+			  height: fit-content;
+			  font-size: 8px;
+			width: 100%;
+		  }
+
+		.welcome_nav ul {
+			display: flex;
+			justify-content: space-between;
+			width: 54%;
 		}
-		
-		li {
+
+		.welcome_nav li {
+			display: flex;
+			justify-content: center;
 			list-style: none;
-			float:left;
+			flex-grow: 1;
+			transition: all 0.54s;
 		}
-		
-		li a {
-			color: #DAD7D7;
+
+		.welcome_nav li:hover {
+			color: white;
+			flex-grow: 1.35;
+		}
+
+		.welcome_nav li a {
+			color: #ffffffb1;
 			text-decoration: none;
-		
 		}
-		
+
+		.welcome_nav li a:hover {
+			color: #ffffff;
+		}
+
 		.nav_li_separator {
-			margin:0 5px;
+			font-size: 1.08em;
 		}
 		
 		@media (min-width: 499px) {
@@ -333,7 +358,7 @@ customElements.define(
 									<li><a href="#">Contact</a></li>
 								</ul>
 							</nav>
-      						<h1 class="welcome_title">Plan <span class="h1_arrow">►</span> Develop <span class="h1_arrow">►</span> Deploy</h1>
+							<h1 class="welcome_title"><span class="animated_span" style="--start-color:#007CF0; --end-color:#00DFD8; --content: 'Plan';">Plan</span> <span class="h1_arrow">></span> <span class="animated_span" style="--start-color:#7928CA; --end-color:#FF0080; --content: 'Develop'; --animation:a2;">Develop</span> <span class="h1_arrow">></span> <span class="animated_span" style="--start-color:#FF4D4D; animation-name:a3; --end-color:#F9CB28; --content: 'Deploy'; --animation: a3">Deploy</span></h1>
       					</div>
       				</div>
 
