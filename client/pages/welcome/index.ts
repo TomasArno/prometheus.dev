@@ -358,7 +358,7 @@ customElements.define(
 									<li><a href="#">Contact</a></li>
 								</ul>
 							</nav>
-							<h1 class="welcome_title"><span class="animated_span" style="--start-color:#007CF0; --end-color:#00DFD8; --content: 'Plan';">Plan</span> <span class="h1_arrow">></span> <span class="animated_span" style="--start-color:#7928CA; --end-color:#FF0080; --content: 'Develop'; --animation:a2;">Develop</span> <span class="h1_arrow">></span> <span class="animated_span" style="--start-color:#FF4D4D; animation-name:a3; --end-color:#F9CB28; --content: 'Deploy'; --animation: a3">Deploy</span></h1>
+							<h1 class="welcome_title"><span class="animated_span" style="--start-color:#007CF0; --end-color:#00DFD8; --content: 'Plan';">Plan</span> <span class="h1_arrow">►</span> <span class="animated_span" style="--start-color:#7928CA; --end-color:#FF0080; --content: 'Develop'; --animation:a2;">Develop</span> <span class="h1_arrow">►</span> <span class="animated_span" style="--start-color:#FF4D4D; animation-name:a3; --end-color:#F9CB28; --content: 'Deploy'; --animation: a3">Deploy</span></h1>
       					</div>
       				</div>
 
