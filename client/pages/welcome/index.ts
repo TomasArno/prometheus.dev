@@ -1,45 +1,31 @@
 customElements.define(
-  "init-welcome",
-  class InitWelcome extends HTMLElement {
-    shadow = this.attachShadow({ mode: "open" });
+	'init-welcome',
+	class InitWelcome extends HTMLElement {
+		shadow = this.attachShadow({ mode: 'open' });
 
-    constructor() {
-      super();
-    }
+		constructor() {
+			super();
+		}
 
-    connectedCallback() {
-      this.render();
-    }
+		connectedCallback() {
+			this.render();
+		}
 
-    addStyles() {
-      const style = document.createElement("style");
+		addStyles() {
+			const style = document.createElement('style');
 
-      style.innerHTML = `
+			style.innerHTML = `
+
       		* {
       			margin: 0;
       			padding: 0;
       			box-sizing: border-box;
       		}
 
-      		.header {
-      			height: 60px;
-      			background-color: rgba(240, 240, 240, 0.200);
-      			border-bottom: rgba(245,238,230,.5);
-      			display:flex;
-      			justify-content: space-between;
-      			align-items:center;
-      		}
-
-      		.ul_nav {
-      			list-style:none;
-      			display: flex;
-      			column-gap: 12px;
-      			margin: 0 20px 0 0;
-      		}
-
-      		.li_nav {
-      			font-size: 30px;
-      		}
+			body {
+				width: 100vw;
+				height: 100vh;
+			}
 
       		.main {
       			height: 100%;
@@ -148,36 +134,30 @@ customElements.define(
       		@keyframes slideBottomUnder500 {
       			0% {
       				transform: translate(500px);
-
       			}
 
       			100% {
       				transform: translate(0);
-
       			}
       		}
 
       		@keyframes leftZone {
       			0% {
       				transform: translate(130px, 130px);
-
       			}
 
       			100% {
       				transform: translate(0, 0);
-
       			}
       		}
 
       		@keyframes rightZone {
       			0% {
       				transform: translate(-130px, -130px);
-
       			}
 
       			100% {
       				transform: translate(0, 0);
-
       			}
       		}
 
@@ -185,7 +165,6 @@ customElements.define(
       			100% {
       				visibility: visible;
       				opacity: 1;
-
       			}
       		}
 
@@ -205,7 +184,6 @@ customElements.define(
       			display: flex;
       			justify-content: center;
 
-      			background: #bfbfbf10;
       			visibility: hidden;
       			opacity: 0;
 
@@ -221,14 +199,15 @@ customElements.define(
       		.welcome {
       			color: white;
       			margin-top: 30%;
-      			height:fit-content;
+      			height: fit-content;
       			display: flex;
       			flex-direction: column;
       			align-items: center;
       		}
+
       		.welcome_title {
       			color: #FFFFFF;
-      			height:fit-content;
+      			height: fit-content;	
       			font-size: 25px;
       		}
 
@@ -238,27 +217,49 @@ customElements.define(
       			-webkit-text-fill-color: transparent;
           		-webkit-background-clip: text;
       			animation: gradient 6s ease infinite;
-      		}
+				font-weight: 900;
+				font-size: 1.08em;
+      		}	
 
       		.welcome_nav {
-      			height:fit-content;
+				display: flex;
+				justify-content: center;
+      			height: fit-content;
       			font-size: 8px;
+				width: 100%;
       		}
 
-      		li {
-      			list-style: none;
-      			float:left;
-      		}
+			.welcome_nav ul {
+				display: flex;
+				justify-content: space-between;
+				width: 54%;
+			}
 
-      		li a {
-      			color: #DAD7D7;
-      			text-decoration: none;
+			.welcome_nav li {
+				display: flex;
+				justify-content: center;
+				list-style: none;
+				flex-grow: 1;
+				transition: all 0.54s;
+			}
 
-      		}
+			.welcome_nav li:hover {
+				color: white;
+				flex-grow: 1.35;
+			}
 
-      		.nav_li_separator {
-      			margin:0 5px;
-      		}
+			.welcome_nav li a {
+				color: #ffffffb1;
+				text-decoration: none;
+			}
+
+			.welcome_nav li a:hover {
+				color: #ffffff;
+			}
+
+			.nav_li_separator {
+				font-size: 1.08em;
+			}
 
       		@media (min-width: 499px) {
 
@@ -279,39 +280,36 @@ customElements.define(
 					font-size: 25px;
 					line-height: 2;
       			}
-
-      			.nav_li_separator {
-      				margin:0 10px;
-      			}
       		}
             `;
-      this.shadow.appendChild(style);
-    }
+			this.shadow.appendChild(style);
+		}
 
-    render() {
-      // <header class="header">
-      // 	<img src="https://picsum.photos/40/40" alt="logo.png">
-      // 	<nav class="nav">
-      // 		<ul class="ul_nav">
-      // 			<li class="li_nav">Welcome</li>
-      // 			<li class="li_nav">Projects</li>
-      // 			<li class="li_nav">About Us</li>
-      // 		</ul>
-      // 	</nav>
-      // </header>
-
-      this.shadow.innerHTML = `
+		render() {
+			this.shadow.innerHTML = `
 
       		<div class="main">
       			<div class="complete-draw">
+
       				<div class="left-corner">
       					<div class="draw top"></div>
       					<div class="draw left"></div>
       				</div>
+
       				<div class="main_content">
       					<div class="welcome">
-      						<h1 class="welcome_title">Plan <span class="h1_arrow">></span> Develop <span class="h1_arrow">></span> Deploy</h1>
-      						<nav class="welcome_nav"><ul><li><a href="welcome">Welcome</a><span class="nav_li_separator">|</span></li><li><a href="about-us">About Us</a><span class="nav_li_separator">|</span></li><li><a href="projects">Projects</a><span class="nav_li_separator">|</span></li><li><a href="contact">Contact</a></li></ul></nav>
+							<nav class="welcome_nav">
+								<ul>
+									<li><a href="#">Welcome</a></li>
+									<li class="nav_li_separator">-</li>
+									<li><a href="#">About Us</a></li>
+									<li class="nav_li_separator">-</li>
+									<li><a href="#">Projects</a></li>
+									<li class="nav_li_separator">-</li>
+									<li><a href="#">Contact</a></li>
+								</ul>
+							</nav>
+      						<h1 class="welcome_title">Plan <span class="h1_arrow">►</span> Develop <span class="h1_arrow">►</span> Deploy</h1>
       					</div>
       				</div>
 
@@ -324,7 +322,7 @@ customElements.define(
 
       		`;
 
-      this.addStyles();
-    }
-  }
+			this.addStyles();
+		}
+	}
 );
