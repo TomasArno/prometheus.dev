@@ -21,11 +21,6 @@ customElements.define(
 			box-sizing: border-box;
 			font-family: 'Poppins', sans-serif;
 		}
-
-		body {
-			width: 100vw;
-			height: 100vh;
-		}
 		
 		.main {
 			height: 100%;
@@ -239,9 +234,10 @@ customElements.define(
 		}
 		
 		.welcome_title {
-			color: #FFFFFF;
+			color: #ffffffa8;
 			height:fit-content;
 			font-size: 25px;
+			font-family: "Poppins", sans-serif;
 		}
 		
 		.h1_arrow {
@@ -255,10 +251,10 @@ customElements.define(
 		.welcome_nav {
 			display: flex;
 			justify-content: center;
-			  height: fit-content;
-			  font-size: 8px;
+			height: fit-content;
+			font-size: 8px;
 			width: 100%;
-		  }
+		}
 
 		.welcome_nav ul {
 			display: flex;
@@ -300,34 +296,41 @@ customElements.define(
 				font-weight: bold;
 			
 			}
-		
+			
 			.welcome_title {
 				font-size: 85px;
 				letter-spacing: -4px;
 				line-height: 1.3;
 			}
+
 			.animated_span {
 				position: relative;
 			}
-		
+			
 			.animated_span::before {
 				animation-name: var(--animation, a);
 				animation-duration: 8s;
 				animation-iteration-count: infinite;
-				background: linear-gradient(90deg, var(--start-color), var(--end-color));
+				background: white;
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
 				position: absolute;
 				content: var(--content);
 				opacity: 1;
 			}
+
 			.welcome_nav {
 				font-size: 25px;
 				line-height: 2;
 			}
 		
 			.nav_li_separator {
-					margin:0 10px;
+				margin:0 10px;
+			}
+
+			.about-us {
+				height: 100vh;
+				background:red;
 			}
 		}
 		`;
@@ -337,7 +340,7 @@ customElements.define(
     render() {
       this.shadow.innerHTML = `
 
-      		<div class="main">
+      		<section id="welcome" class="main">
       			<div class="complete-draw">
 
       				<div class="left-corner">
@@ -349,9 +352,9 @@ customElements.define(
       					<div class="welcome">
 							<nav class="welcome_nav">
 								<ul>
-									<li><a href="#">Welcome</a></li>
+									<li><a href="#welcome">Welcome</a></li>
 									<li class="nav_li_separator">-</li>
-									<li><a href="#">About Us</a></li>
+									<li><a href="#about">About Us</a></li>
 									<li class="nav_li_separator">-</li>
 									<li><a href="#">Projects</a></li>
 									<li class="nav_li_separator">-</li>
@@ -359,7 +362,7 @@ customElements.define(
 								</ul>
 							</nav>
 							<h1 class="welcome_title"><span class="animated_span" style="--start-color:#007CF0; --end-color:#00DFD8; --content: 'Plan';">Plan</span> <span class="h1_arrow">></span> <span class="animated_span" style="--start-color:#7928CA; --end-color:#FF0080; --content: 'Develop'; --animation:a2;">Develop</span> <span class="h1_arrow">></span> <span class="animated_span" style="--start-color:#FF4D4D; animation-name:a3; --end-color:#F9CB28; --content: 'Deploy'; --animation: a3">Deploy</span></h1>
-							</div>
+						</div>
       				</div>
 
       				<div class="right-corner">
@@ -367,7 +370,12 @@ customElements.define(
       					<div class="draw bottom"></div>
       				</div>
       			</div>
-      		</div>
+      		</section>
+			<section id="about" class="about-us">
+				<div>
+					a
+				</div>
+			</section>
 
       		`;
 
